@@ -3,7 +3,7 @@ const  rapperModel = [
         picture: "#",
         name: "Djonga",
         age: 26,
-        almbum: "Ladrão",
+        album: "Ladrão",
         single: "Ladrão"        
     },
     {
