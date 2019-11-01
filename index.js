@@ -48,6 +48,24 @@ const createRapper = () => {
     })
 
     let rapperAliveHtml = []
+    for (let i = 0; i < rapperAlive.length; i++) {
+        const rapper = rapperAlive[i];
+        rapperAliveHtml.push(`
+        <span>${rapper.picture}</span>
+        <br/>
+        <span>${rapper.name}</span>
+        <br/>
+        <span>${rapper.age}</span>
+        <br/>
+        <span>${rapper.album}</span>
+        <br/>
+        <span>${rapper.single}</span>
+        <br/>
+        <button onclick="matarRapper('${rapper.name}')" >Remover</button>
+        <br/>
+        `)
+    }
+    document.getElementById('listaVivos').innerHTML=rapperAliveHtml.join("")
 }
 
 /*rapperDead = rapperAlive.map(rapper => `<span>${rapper.picture}</span>
