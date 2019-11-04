@@ -28,44 +28,98 @@ for (let i = 0; i < rapperAlive.length; i++) {
     <span>${rapper.age}</span><br>
     <span>${rapper.album}</span><br>
     <span>${rapper.single}</span><br>
-    <button onclick="matarRapper('${rapper.name}')"> Remover</button>
+    <button onclick="matarRapper('${rapper.name}')">Remover Rapper</button><br/>
     `)
 }
 document.getElementById('listaVivos').innerHTML=rapperAliveHtml.join(" ");
 
 const killRapper = (name) => {
-    console.log('emicida' , name)
-    let newRapper = []
+    console.log('' , name)
+    let newRapperAlive = []
     for (let i = 0; i < rapperAlive.length; i++) {
         const rapper = rapperAlive[i];
         if (rapper.name === name) {
             rapperDead.push(rapper)
         } else {
-            newRapper.push(rapper)
+            newRapperAlive.push(rapper)
         }
     }
-    rapperAlive = newRapper
+    rapperAlive = newRapperAlive
 
-    let newRapperHtml = []
+    let newRapperAliveHtml = []
     for (let i = 0; i < rapperAlive.length; i++) {
        const rapper = rapperAlive[i];
-       newRapperHtml.push(`
+       newRapperAliveHtml.push(`
        <span>${rapper.picture}</span><br>
     <span>${rapper.name}</span><br>
     <span>${rapper.age}</span><br>
     <span>${rapper.album}</span><br>
     <span>${rapper.single}</span><br>
-        <button></button>
+    <button onclick="matarRapper('${rapper.name}')">Remover Rapper</button><br/>
        `) 
     }
+
+let newRapperDeadHtml = []
+for (let i = 0; i < rapperDead.length; i++) {
+    const rapper = rapperDead[i];
+    newRapperDeadHtml.push(`
+    <span>${rapper.picture}</span><br/>
+    <span>${rapper.name}</span><br/>
+    <span>${rapper.age}</span><br/>
+    <span>${rapper.album}</span><br/>
+    <span>${rapper.single}</span><br/>
+    <button onclick="reviverRapper('${rapper.name}')">Reviver Rapper</button><br/>
+    `)
+}
+console.log('')
+document.getElementById('listaVivos').innerHTML= newRapperAliveHtml.join("")
+document.getElementById('listaMortos').innerHTML= newRapperDeadHtml.join("")
 }
 
+const reviveRapper = (name) => {
+    console.log('',name)
+    let newRapperDead = []
+    for (let i = 0; i < rapperDead.length; i++) {
+        const rapper = rapperDead[i]
+        if ( rapper.name === name) {
+            rapperAlive.push(rapper)
+        } else {
+            newRapperDead.push(rapper)
+        }
+    }
+    rapperDead = newRapperDead
 
+    let newRapperAliveHtml = []
+    for (let i = 0; i < rapperAlive.length; i++) {
+        const rapper = rapperAlive[i]
+        newRapperAliveHtml.push(`
+        <span>${rapper.picture}</span><br/>
+      <span>${rapper.name}</span><br/>
+      <span>${rapper.age}</span><br/>
+      <span>${rapper.album}</span><br/>
+      <span>${rapper.single}</span><br/>
+      <button onclick="matarRapper('${rapper.name}')">Remover Rapper</button><br/>
+        `)
+    }
 
+    let newRapperDeadHtml = []
+    for (let i = 0; i < rapperDead.length; i++) {
+        const rapper = rapperDead[i]
+        newRapperDeadHtml.push(`
+        <span>${rapper.picture}</span><br/>
+        <span>${rapper.name}</span><br/>
+        <span>${rapper.age}</span><br/>
+        <span>${rapper.album}</span><br/>
+        <span>${rapper.single}</span><br/>
+        <button onclick="reviverRapper('${rapper.name}')">Reviver Rapper</button><br/>
+        `)
+    }
+    document.getElementById('listaVivos').innerHTML= newRapperAliveHtml.join("")
+    document.getElementById('listaMortos').innerHTML= newRapperDeadHtml.join("")
+}
 
-
-
-
+window.matarRapper = killRapper
+window.reviverRapper = reviveRapper
 
 const createRapper = () => {
     const picture = document.getElementById("picture").value
@@ -96,16 +150,9 @@ const createRapper = () => {
         <br/>
         <span>${rapper.single}</span>
         <br/>
-        <button onclick="matarRapper('${rapper.name}')" >Remover</button>
+        <button onclick="matarRapper('${rapper.name}')" >Remover Rapper</button><br/>
         <br/>
         `)
     }
     document.getElementById('listaVivos').innerHTML=rapperAliveHtml.join("")
 }
-
-/*rapperDead = rapperAlive.map(rapper => `<span>${rapper.picture}</span>
-<span>${rapper.name}</span>
-<span>${rapper.age}</span>
-<span>${rapper.album}</span>
-<span>${rapper.single}</span>`
-)
