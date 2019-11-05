@@ -14,6 +14,13 @@ section {
     margin: auto;
     box-shadow: 8px 8px 10px rgb(37, 37, 37);
 }
+div#vivos {
+    float: left;
+}
+div#mortos {
+    float: right;
+
+}
 div#marca {
     color: rgb(153, 153, 153);
     text-align: center;
