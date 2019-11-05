@@ -8,7 +8,7 @@ const  rapperModel = [
         single: "Ladrão"        
     },
     {
-        picture: '#',
+        picture: "#",
         name: "Rapadura",
         age: 30,
         album: "RapBox",
