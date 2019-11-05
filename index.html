@@ -10,27 +10,9 @@
 </head>
 
 <body>
-        <h1>Rappers Vivos</h1>
-    <section>
-        <div id="listaVivos">
-        </div>
-    </section>
-    <br>
-    <br>
-    <h1>Rappers Falecidos</h1>
-    <section>
-        <div id="listaMortos">
-        </div>
-    </section>
-    <br>
-    <br>
     <h1>Criar um novo rapper</h1>
     <section>
         <div id="criarNovo">
-            <label>Foto do rapper</label>
-            <br>
-            <input style="width: 300px;" id="picture" />
-            <br>
             <label>Nome do Rapper</label>
             <br>
             <input style="width: 300px;" id="name" />
@@ -49,9 +31,26 @@
             <button onclick="createRapper()" type=submit>Salvar</button>
         </div>
     </section>
-    <footer>
-        <p>&reg; Zup</p>
-    </footer>
+    <h1>Rappers Vivos</h1>
+    <section id="vivos">
+        <div id="listaVivos">
+        </div>
+    </section>
+    <br>
+    <br>
+    <h1>Rappers Falecidos</h1>
+    <section id="mortos">
+        <div id="listaMortos">
+        </div>
+    </section>
+    <br>
+    <br>
+    <div id="marca">
+        <footer>
+            <p>&reg; Zup</p>
+        </footer>
+    </div>
+
     <script src="./index.js"></script>
 
 </body>
