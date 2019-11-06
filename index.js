@@ -1,20 +1,6 @@
 
-const  rapperModel = [
-    {
-        name: "Djonga",
-        age: 26,
-        album: "Ladrão",
-        single: "Ladrão"        
-    },
-    {
-        name: "Rapadura",
-        age: 30,
-        album: "RapBox",
-        single: "Norte Nordeste"
+const  rapperModel = []
 
-    }
-]
-//método para criar um rapper
 const createRapper = () => {
     const name = document.getElementById("name").value
     const age = document.getElementById("age").value
@@ -48,8 +34,9 @@ const createRapper = () => {
 }
 
 let rapperAlive = rapperModel
+
 let rapperDead = []
-//remove um rapper da lista
+
 let rapperAliveHtml = []
 for (let i = 0; i < rapperAlive.length; i++) {
     const rapper = rapperAlive[i];
@@ -58,13 +45,12 @@ for (let i = 0; i < rapperAlive.length; i++) {
     Idade: <span>${rapper.age}</span><br>
     Álbum: <span>${rapper.album}</span><br>
     Single: <span>${rapper.single}</span><br>
-    <button onclick="matarRapper('${rapper.name}')">Remover Rapper</button><br/>
+    <button onclick="matarRapper('${rapper.name}')">Remover</button><br/>
     `)
 }
 document.getElementById('listaVivos').innerHTML=rapperAliveHtml.join(" ");
 
 const killRapper = (name) => {
-    console.log('' , name)
     let newRapperAlive = []
     for (let i = 0; i < rapperAlive.length; i++) {
         const rapper = rapperAlive[i];
@@ -84,7 +70,7 @@ const killRapper = (name) => {
     Idade: <span>${rapper.age}</span><br>
     Álbum: <span>${rapper.album}</span><br>
     Single: <span>${rapper.single}</span><br>
-    <button onclick="matarRapper('${rapper.name}')">Remover Rapper</button><br/>
+    <button onclick="matarRapper('${rapper.name}')">Remover</button><br/>
        `) 
     }
 
@@ -96,7 +82,7 @@ for (let i = 0; i < rapperDead.length; i++) {
     Idade: <span>${rapper.age}</span><br/>
     Álbum: <span>${rapper.album}</span><br/>
     Single: <span>${rapper.single}</span><br/>
-    <button onclick="reviverRapper('${rapper.name}')">Reviver Rapper</button><br/>
+    <button onclick="reviverRapper('${rapper.name}')">Reviver</button><br/>
     `)
 }
 document.getElementById('listaVivos').innerHTML= newRapperAliveHtml.join("")
@@ -104,7 +90,6 @@ document.getElementById('listaMortos').innerHTML= newRapperDeadHtml.join("")
 }
 
 const reviveRapper = (name) => {
-    console.log('',name)
     let newRapperDead = []
     for (let i = 0; i < rapperDead.length; i++) {
         const rapper = rapperDead[i]
@@ -124,7 +109,7 @@ const reviveRapper = (name) => {
       Idade: <span>${rapper.age}</span><br/>
       Álbum:<span>${rapper.album}</span><br/>
       Single: <span>${rapper.single}</span><br/>
-      <button onclick="matarRapper('${rapper.name}')">Remover Rapper</button><br/>
+      <button onclick="matarRapper('${rapper.name}')">Remover</button><br/>
         `)
     }
 
@@ -136,7 +121,7 @@ const reviveRapper = (name) => {
         Idade: <span>${rapper.age}</span><br/>
         Álbum: <span>${rapper.album}</span><br/>
         Single: <span>${rapper.single}</span><br/>
-        <button onclick="reviverRapper('${rapper.name}')">Reviver Rapper</button><br/>
+        <button onclick="reviverRapper('${rapper.name}')">Reviver</button><br/>
         `)
     }
     document.getElementById('listaVivos').innerHTML= newRapperAliveHtml.join("")
