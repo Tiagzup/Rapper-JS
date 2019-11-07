@@ -40,21 +40,9 @@ const  rapperList = []
 let rapperAlive = rapperList
 //Criamos um lista vazia pra salvar os rappers mortos que virão da lista de rappers vivos.
 let rapperDead = []
-
-// const rapperRemove = () => {
-//     for (let i = 0; i < rapperAlive.length; i++) {
-//         const rapper = rapperAlive[i];
-//         rapperAliveHtml.push(`
-//         Nome: <span>${rapper.name}</span><br>
-//         Idade: <span>${rapper.age}</span><br>
-//         Álbum: <span>${rapper.album}</span><br>
-//         Single: <span>${rapper.single}</span><br>
-//         <button onclick="matarRapper('${rapper.name}')">Remover</button><br/>
-//         `)
-//     }
-// }
-
-const killRapper = (name) => {
+//Usamos o length para buscar o tamanho do array.
+//Aqui executamos a função pra salvar um rapper na lista
+const saveRapper = (name) => {
     let newRapperAlive = []
     for (let i = 0; i < rapperAlive.length; i++) {
         const rapper = rapperAlive[i];
@@ -65,8 +53,9 @@ const killRapper = (name) => {
         }
     }
     rapperAlive = newRapperAlive
-
+   
     let newRapperAliveHtml = []
+     //Função para remover um rapper da lista de vivos.
     for (let i = 0; i < rapperAlive.length; i++) {
        const rapper = rapperAlive[i];
        newRapperAliveHtml.push(`
@@ -77,8 +66,9 @@ const killRapper = (name) => {
     <button onclick="matarRapper('${rapper.name}')">Remover</button><br/>
        `) 
     }
-
+//Aqui criamos uma lista para incluir os rappers mortos
 let newRapperDeadHtml = []
+//Aqui fazemos a função pra inserir o rapper na lista de mortos
 for (let i = 0; i < rapperDead.length; i++) {
     const rapper = rapperDead[i];
     newRapperDeadHtml.push(`
@@ -92,7 +82,7 @@ for (let i = 0; i < rapperDead.length; i++) {
 document.getElementById('listaVivos').innerHTML= newRapperAliveHtml.join("")
 document.getElementById('listaMortos').innerHTML= newRapperDeadHtml.join("")
 }
-
+//funçao para reviver um rapper.
 const reviveRapper = (name) => {
     let newRapperDead = []
     for (let i = 0; i < rapperDead.length; i++) {
@@ -132,6 +122,6 @@ const reviveRapper = (name) => {
     document.getElementById('listaMortos').innerHTML= newRapperDeadHtml.join("")
 }
 
-window.matarRapper = killRapper
+window.matarRapper = saveRapper
 window.reviverRapper = reviveRapper
 
