@@ -26,8 +26,7 @@ const createRapper = () => {
         <br/>
         Single: <span>${rapper.single}</span>
         <br/>
-        <button onclick="matarRapper('${rapper.name}')" >Remover Rapper</button><br/>
-        <br/>
+        <button onclick="matarRapper('${rapper.name}')" >Remover</button><br/>
         `)
     }
     document.getElementById('listaVivos').innerHTML=rapperAliveHtml.join("")
