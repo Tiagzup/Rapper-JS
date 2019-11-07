@@ -26,3 +26,20 @@ div#marca {
     font-style: italic;
     font: normal 20px Arial;
 }
+img {
+    position: absolute;
+    width: 350px;
+    height: 200px;
+}
+button {
+    background-color: rgb(84, 211, 0);
+    color: white;
+    font-family: 'Permanent Marker', cursive;
+    text-shadow: 3px 3px 2px rgb(37, 37, 37);
+    border: solid transparent 5px;
+    border-radius: 20px;
+    font-size: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    box-shadow: 5px 5px 3px rgb(37, 37, 37);
+}
