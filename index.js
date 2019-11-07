@@ -1,19 +1,20 @@
 
-const  rapperModel = []
 
+//Método para criar um rapper
 const createRapper = () => {
+    //Aqui usamos o getElementById pra retornar o DOM elemento que está identificado pelo ID
     const name = document.getElementById("name").value
     const age = document.getElementById("age").value
     const album = document.getElementById("album").value
     const single = document.getElementById("single").value
-
+    //Aqui usamos o push pra inserir os valores na lista.
     rapperAlive.push({
         name,
         age,
         album,
         single
     })
-
+    //Criamos uma lista pra salvar a lista em html
     let rapperAliveHtml = []
     for (let i = 0; i < rapperAlive.length; i++) {
         const rapper = rapperAlive[i];
@@ -29,37 +30,29 @@ const createRapper = () => {
         <button onclick="matarRapper('${rapper.name}')" >Remover</button><br/>
         `)
     }
+    //Aqui pegamos a lista de rappers vivos e retornamos usando o innerHtml. 
+    //E o join que vai pegar retornar todos os elementos da Array em uma só string
     document.getElementById('listaVivos').innerHTML=rapperAliveHtml.join("")
 }
-
-let rapperAlive = rapperModel
-
+//Aqui criamos uma array vazia pra salvar os objetos criados acima.
+const  rapperList = []
+//Aqui atribuimos a lista de objtos a uma lista de rappers vivos.
+let rapperAlive = rapperList
+//Criamos um lista vazia pra salvar os rappers mortos que virão da lista de rappers vivos.
 let rapperDead = []
 
-let rapperAliveHtml = []
-const rapperRemove = () => {
-    for (let i = 0; i < rapperAlive.length; i++) {
-        const rapper = rapperAlive[i];
-        rapperAliveHtml.push(`
-        Nome: <span>${rapper.name}</span><br>
-        Idade: <span>${rapper.age}</span><br>
-        Álbum: <span>${rapper.album}</span><br>
-        Single: <span>${rapper.single}</span><br>
-        <button onclick="matarRapper('${rapper.name}')">Remover</button><br/>
-        `)
-    }
-}
-// for (let i = 0; i < rapperAlive.length; i++) {
-//     const rapper = rapperAlive[i];
-//     rapperAliveHtml.push(`
-//     Nome: <span>${rapper.name}</span><br>
-//     Idade: <span>${rapper.age}</span><br>
-//     Álbum: <span>${rapper.album}</span><br>
-//     Single: <span>${rapper.single}</span><br>
-//     <button onclick="matarRapper('${rapper.name}')">Remover</button><br/>
-//     `)
+// const rapperRemove = () => {
+//     for (let i = 0; i < rapperAlive.length; i++) {
+//         const rapper = rapperAlive[i];
+//         rapperAliveHtml.push(`
+//         Nome: <span>${rapper.name}</span><br>
+//         Idade: <span>${rapper.age}</span><br>
+//         Álbum: <span>${rapper.album}</span><br>
+//         Single: <span>${rapper.single}</span><br>
+//         <button onclick="matarRapper('${rapper.name}')">Remover</button><br/>
+//         `)
+//     }
 // }
-document.getElementById('listaVivos').innerHTML=rapperAliveHtml.join(" ");
 
 const killRapper = (name) => {
     let newRapperAlive = []
