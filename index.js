@@ -37,16 +37,28 @@ let rapperAlive = rapperModel
 let rapperDead = []
 
 let rapperAliveHtml = []
-for (let i = 0; i < rapperAlive.length; i++) {
-    const rapper = rapperAlive[i];
-    rapperAliveHtml.push(`
-    Nome: <span>${rapper.name}</span><br>
-    Idade: <span>${rapper.age}</span><br>
-    Álbum: <span>${rapper.album}</span><br>
-    Single: <span>${rapper.single}</span><br>
-    <button onclick="matarRapper('${rapper.name}')">Remover</button><br/>
-    `)
+const rapperRemove = () => {
+    for (let i = 0; i < rapperAlive.length; i++) {
+        const rapper = rapperAlive[i];
+        rapperAliveHtml.push(`
+        Nome: <span>${rapper.name}</span><br>
+        Idade: <span>${rapper.age}</span><br>
+        Álbum: <span>${rapper.album}</span><br>
+        Single: <span>${rapper.single}</span><br>
+        <button onclick="matarRapper('${rapper.name}')">Remover</button><br/>
+        `)
+    }
 }
+// for (let i = 0; i < rapperAlive.length; i++) {
+//     const rapper = rapperAlive[i];
+//     rapperAliveHtml.push(`
+//     Nome: <span>${rapper.name}</span><br>
+//     Idade: <span>${rapper.age}</span><br>
+//     Álbum: <span>${rapper.album}</span><br>
+//     Single: <span>${rapper.single}</span><br>
+//     <button onclick="matarRapper('${rapper.name}')">Remover</button><br/>
+//     `)
+// }
 document.getElementById('listaVivos').innerHTML=rapperAliveHtml.join(" ");
 
 const killRapper = (name) => {
