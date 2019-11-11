@@ -1,4 +1,6 @@
-
+const  rapperList = []  
+let rapperAlive = rapperList
+let rapperDead = []
 //Método para criar um rapper
 const createRapper = () => {
     //Aqui usamos o getElementById pra retornar o DOM elemento que está identificado pelo ID
@@ -6,7 +8,6 @@ const createRapper = () => {
     const age = document.getElementById("age").value
     const album = document.getElementById("album").value
     const single = document.getElementById("single").value
-    
     //Aqui usamos o push pra inserir os valores na lista.
     rapperAlive.push({
         name,
@@ -16,10 +17,11 @@ const createRapper = () => {
     })
     //Criamos uma lista pra salvar a lista em html
     let rapperAliveHtml = []
+
     for (let i = 0; i < rapperAlive.length; i++) {
         const rapper = rapperAlive[i];
         rapperAliveHtml.push(`
-        Nome: <span>${rapper.name}</span>
+         <span>Nome: ${rapper.name}</span>
         <br/>
         Idade: <span>${rapper.age}</span>
         <br/>
@@ -32,17 +34,14 @@ const createRapper = () => {
     }
     //Aqui pegamos a lista de rappers vivos e retornamos usando o innerHtml. 
     //E o join que vai pegar retornar todos os elementos da Array em uma só string
+    document.getElementById("name").value = ""
+    document.getElementById("age").value = ""
+    document.getElementById("album").value = ""
+    document.getElementById("single").value = ""
     document.getElementById('listaVivos').innerHTML=rapperAliveHtml.join("")
 }
+window.createRapper = createRapper
 
-//Aqui criamos uma array vazia pra salvar os objetos criados acima.
-const  rapperList = []
-//Aqui atribuimos a lista de objtos a uma lista de rappers vivos.
-let rapperAlive = rapperList
-//Criamos um lista vazia pra salvar os rappers mortos que virão da lista de rappers vivos.
-let rapperDead = []
-//Usamos o length para buscar o tamanho do array.
-//Aqui executamos a função pra salvar um rapper na lista
 const saveRapper = (name) => {
     let newRapperAlive = []
     for (let i = 0; i < rapperAlive.length; i++) {
