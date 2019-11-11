@@ -34,6 +34,7 @@ const createRapper = () => {
     //E o join que vai pegar retornar todos os elementos da Array em uma só string
     document.getElementById('listaVivos').innerHTML=rapperAliveHtml.join("")
 }
+
 //Aqui criamos uma array vazia pra salvar os objetos criados acima.
 const  rapperList = []
 //Aqui atribuimos a lista de objtos a uma lista de rappers vivos.
