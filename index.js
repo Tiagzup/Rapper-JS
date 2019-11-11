@@ -1,5 +1,4 @@
 
-
 //Método para criar um rapper
 const createRapper = () => {
     //Aqui usamos o getElementById pra retornar o DOM elemento que está identificado pelo ID
@@ -7,6 +6,7 @@ const createRapper = () => {
     const age = document.getElementById("age").value
     const album = document.getElementById("album").value
     const single = document.getElementById("single").value
+    
     //Aqui usamos o push pra inserir os valores na lista.
     rapperAlive.push({
         name,
@@ -129,4 +129,6 @@ const reviveRapper = (name) => {
 
 window.matarRapper = saveRapper
 window.reviverRapper = reviveRapper
+
+
 
