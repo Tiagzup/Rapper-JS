@@ -32,12 +32,12 @@ const createRapper = () => {
         <button onclick="matarRapper('${rapper.name}')" >Remover</button><br/>
         `)
     }
-    //Aqui pegamos a lista de rappers vivos e retornamos usando o innerHtml. 
-    //E o join que vai pegar retornar todos os elementos da Array em uma só string
+   //limpas o formulario ao enviar uma requesição.
     document.getElementById("name").value = ""
     document.getElementById("age").value = ""
     document.getElementById("album").value = ""
     document.getElementById("single").value = ""
+    //envia a lista em html
     document.getElementById('listaVivos').innerHTML=rapperAliveHtml.join("")
 }
 window.createRapper = createRapper
