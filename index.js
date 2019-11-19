@@ -1,21 +1,3 @@
-// tipos de variáveis
-// const e let
-// string, number, object, array, null, boolean
-// Quando vc coda alguma coisa vc tem que lembrar que alguém vai ler
-// levar em consideração a ordem do código
-// levar em consideração os nomes de variáveis
-// levar em consideração a formatação e também as boas práticas
-// levar em consideração qual é a forma mais simples de resolver um problema.
-// simples = (perfomance + complexidade + leitura)
-// vai ter uma lista só e as propriedades que definirão os vivos ou mortos estarão na entidade do Rapper
-// const rapper = {
-//   name: 'teste',
-//   age: 25,
-//   album: 'nome qualquer',
-//   single: 'musica qualquer',
-//   live: true
-// }
-
 const rapperList = []
 
 const createHtml = (queroVivosOuMortos) => {
@@ -59,8 +41,7 @@ const createHtml = (queroVivosOuMortos) => {
   }
 }
 const createRapper = () => {
-  const name = document.getElemen
-  tById("name").value
+  const name = document.getElementById("name").value
   const age = document.getElementById("age").value
   const album = document.getElementById("album").value
   const single = document.getElementById("single").value
