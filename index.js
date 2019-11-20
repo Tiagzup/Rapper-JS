@@ -1,5 +1,6 @@
 const rapperList = []
 
+
 const createHtml = (queroVivosOuMortos) => {
   if (queroVivosOuMortos === true) {
     const liveHtml = []
@@ -14,7 +15,7 @@ const createHtml = (queroVivosOuMortos) => {
         <br/>
         Single: <span>${rapper.single}</span>
         <br/>
-        <button onclick="matarRapper('${rapper.name}')" >Remover</button><br/>
+        <button onclick="reviverRapper('${rapper.name}', false)">Remover</button><br/>
         `)
       }
     })
@@ -33,13 +34,14 @@ const createHtml = (queroVivosOuMortos) => {
         <br/>
         Single: <span>${rapper.single}</span>
         <br/>
-        <button onclick="reviverRapper('${rapper.name}')" >Reviver</button><br/>
+        <button onclick="reviverRapper('${rapper.name}', true)" >Reviver</button><br/>
         `)
       }
     })
     return deadHtml
   }
 }
+
 const createRapper = () => {
   const name = document.getElementById("name").value
   const age = document.getElementById("age").value
@@ -54,6 +56,7 @@ const createRapper = () => {
     live: true
   })
   const liveHtml = createHtml(true).join("")
+
   document.getElementById('listaVivos').innerHTML = liveHtml
   document.getElementById("name").value = ""
   document.getElementById("age").value = ""
@@ -62,30 +65,31 @@ const createRapper = () => {
 }
 window.createRapper = createRapper
 
-const matarRapper = (name) => {
-  let deadIndex = []
-  rapperList.map((rapper, index) => {
-    if (rapper.name === name) {
-      deadIndex = index
-    }
-  })
-  rapperList[deadIndex].live = false
 
-  const newRapperAliveHtml = createHtml(true)
-  const newRapperDeadHtml = createHtml(false)
+// const matarRapper = (name) => {
+//   let deadIndex = []
+//   rapperList.map((rapper, index) => {
+//     if (rapper.name === name) {
+//       deadIndex = index
+//     }
+//   })
+//   rapperList[deadIndex].live = false
 
-  document.getElementById('listaVivos').innerHTML = newRapperAliveHtml.join("")
-  document.getElementById('listaMortos').innerHTML = newRapperDeadHtml.join("")
-}
+  // const newRapperAliveHtml = createHtml(true)
+  // const newRapperDeadHtml = createHtml(false)
 
-const reviveRapper = (name) => {
+//   document.getElementById('listaVivos').innerHTML = newRapperAliveHtml.join("")
+//   document.getElementById('listaMortos').innerHTML = newRapperDeadHtml.join("")
+// }
+
+const reviveRapper = (name, criterio) => {
   let liveIndex = []
   rapperList.map((rapper, index) => {
     if (rapper.name === name) {
       liveIndex = index
     }
   })
-  rapperList[liveIndex].live = true
+  rapperList[liveIndex].live = criterio? true : false
 
   const newRapperAliveHtml = createHtml(true)
   const newRapperDeadHtml = createHtml(false)
@@ -94,7 +98,7 @@ const reviveRapper = (name) => {
   document.getElementById('listaMortos').innerHTML = newRapperDeadHtml.join("")
 }
 
-window.matarRapper = matarRapper
+//window.matarRapper = matarRapper
 window.reviverRapper = reviveRapper
 
 
