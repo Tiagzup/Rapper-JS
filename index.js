@@ -1,12 +1,12 @@
 const rapperList = []
 
-
 const createHtml = (queroVivosOuMortos) => {
-  if (queroVivosOuMortos === true) {
-    const liveHtml = []
-    rapperList.map((rapper) => {
-      if (rapper.live === true) {
-        liveHtml.push(`
+  return rapperList.map((rapper) => {
+    if (rapper.live === queroVivosOuMortos ){
+      const liveButton = `<button onclick="reviverRapper('${rapper.name}', true)">Reviver</button><br/>`
+      const deathButton = `<button onclick="reviverRapper('${rapper.name}', false)">Remover</button><br/>`
+    
+      return rapper.live === queroVivosOuMortos &&  `
          <span>Nome: ${rapper.name}</span>
         <br/>
         Idade: <span>${rapper.age}</span>
@@ -15,32 +15,52 @@ const createHtml = (queroVivosOuMortos) => {
         <br/>
         Single: <span>${rapper.single}</span>
         <br/>
-        <button onclick="reviverRapper('${rapper.name}', false)">Remover</button><br/>
-        `)
-      }
-    })
-    return liveHtml
+        ${queroVivosOuMortos? deathButton : liveButton }
+        `
+    }
+} )
 
-  } else {
-    const deadHtml = []
-    rapperList.map((rapper) => {
-      if (rapper.live === false) {
-        deadHtml.push(`
-         <span>Nome: ${rapper.name}</span>
-        <br/>
-        Idade: <span>${rapper.age}</span>
-        <br/>
-        Álbum: <span>${rapper.album}</span>
-        <br/>
-        Single: <span>${rapper.single}</span>
-        <br/>
-        <button onclick="reviverRapper('${rapper.name}', true)" >Reviver</button><br/>
-        `)
-      }
-    })
-    return deadHtml
-  }
 }
+// const createHtml = (queroVivosOuMortos) => {
+//   if (queroVivosOuMortos === true) {
+//     const liveHtml = []
+//     rapperList.map((rapper) => {
+//       if (rapper.live === true) {
+//         liveHtml.push(`
+//          <span>Nome: ${rapper.name}</span>
+//         <br/>
+//         Idade: <span>${rapper.age}</span>
+//         <br/>
+//         Álbum: <span>${rapper.album}</span>
+//         <br/>
+//         Single: <span>${rapper.single}</span>
+//         <br/>
+//         <button onclick="reviverRapper('${rapper.name}', false)">Remover</button><br/>
+//         `)
+//       }
+//     })
+//     return liveHtml
+
+//   } else {
+//     const deadHtml = []
+//     rapperList.map((rapper) => {
+//       if (rapper.live === false) {
+//         deadHtml.push(`
+//          <span>Nome: ${rapper.name}</span>
+//         <br/>
+//         Idade: <span>${rapper.age}</span>
+//         <br/>
+//         Álbum: <span>${rapper.album}</span>
+//         <br/>
+//         Single: <span>${rapper.single}</span>
+//         <br/>
+//         <button onclick="reviverRapper('${rapper.name}', true)" >Reviver</button><br/>
+//         `)
+//       }
+//     })
+//     return deadHtml
+//   }
+// }
 
 const createRapper = () => {
   const name = document.getElementById("name").value
