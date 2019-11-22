@@ -1,12 +1,18 @@
 const rapperList = []
-
+//Aqui criamos a variavel createHtml que recebe como parametro o que esperamos da função a ser criada.
 const createHtml = (queroVivosOuMortos) => {
+ // usamos o map para percorrer cada elemento da lista e devolver um novo array com esses elementos 
+ // e retornamos esse array pra função que é de onde vamos tirar os rappers vivos e mortos.
   return rapperList.map((rapper) => {
+    //Aqui usamos um IF que vai dizer se o rapper é vivo ou morto.
     if (rapper.live === queroVivosOuMortos ){
+      //criamos duas variaveis pra dois cenarios possiveis, se o rapper for vivo podemos remover com o deathbuton
+      //Se o rapper estiver na lista de mortos revivemos com o livebutton
       const liveButton = `<button onclick="reviverRapper('${rapper.name}', true)">Reviver</button><br/>`
       const deathButton = `<button onclick="reviverRapper('${rapper.name}', false)">Remover</button><br/>`
-    
+    //Aqui retornamos o status do rapper, vivo ou morto, e formularioa html.
       return rapper.live === queroVivosOuMortos &&  `
+
          <span>Nome: ${rapper.name}</span>
         <br/>
         Idade: <span>${rapper.age}</span>
@@ -17,6 +23,9 @@ const createHtml = (queroVivosOuMortos) => {
         <br/>
         ${queroVivosOuMortos? deathButton : liveButton }
         `
+        //Na linha acima usamos operador ternário para mudar o rapper pra lista de vivos ou mortos.
+        //Nesse caso ele funciona como um if {} else {}
+        //Não entendemos muito bem o que o $ faz nessa função.
     }
 } )
 
