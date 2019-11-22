@@ -25,7 +25,8 @@ const createHtml = (queroVivosOuMortos) => {
         `
         //Na linha acima usamos operador ternário para mudar o rapper pra lista de vivos ou mortos.
         //Nesse caso ele funciona como um if {} else {}
-        //Não entendemos muito bem o que o $ faz nessa função.
+        //O $ busca na função quero vivos ou mortos se o rapper é vivo ou morto 
+        //e o operador ternario consegue mudar ele de lista.
     }
 } )
 
